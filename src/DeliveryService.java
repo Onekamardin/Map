@@ -1,11 +1,9 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class DeliveryService {
     private Map<Address, Integer> costPerAddress = new HashMap<>();
-
     private int totalCost = 0;
+    private Set<String> deliveredCountries = new HashSet<>();
 
     public void initialize() {
         costPerAddress.put(new Address("Россия", "Казань"), 200);
@@ -55,9 +53,11 @@ public class DeliveryService {
             int deliveryCost = (int) (pricePerKg * weight);
 
             totalCost += deliveryCost;
+            deliveredCountries.add(country); // Добавляем страну в набор уникальных
 
             System.out.println("Стоимость доставки составит: " + deliveryCost + " руб.");
             System.out.println("Общая стоимость всех доставок: " + totalCost + " руб.");
+            System.out.println("Количество уникальных стран, куда были оформлены доставки: " + deliveredCountries.size());
         }
     }
 

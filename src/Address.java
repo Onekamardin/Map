@@ -14,7 +14,8 @@ class Address {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Address address = (Address) o;
-        return Objects.equals(country, address.country) && Objects.equals(city, address.city);
+        return Objects.equals(country, address.country) &&
+                Objects.equals(city, address.city);
     }
 
     @Override
@@ -22,10 +23,13 @@ class Address {
         return Objects.hash(country, city);
     }
 
+    public String getCountry() {
+        return country;
+    }
+
     @Override
     public String toString() {
         return country + ", " + city;
     }
 }
-
 
